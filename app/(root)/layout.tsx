@@ -1,11 +1,14 @@
-import React from 'react'
 
-type Props = {}
 
-const RootLayout = (props: Props) => {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <div>RootLayout</div>
-  )
+    <main>
+            Sidebar
+        {children}
+    </main>
+  );
 }
-
-export default RootLayout
