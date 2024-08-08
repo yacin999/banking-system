@@ -20,14 +20,14 @@ export default function RootLayout({
               src={"/icons/logo.svg"}
               width={30}
               height={30}
-              alt="menu icon"
+              alt="logo"
             />
             <div className="">
-              <MobileNav/>
+              <MobileNav user={loggedIn}/>
             </div>
           </div>
+          {children}
         </div>
-        {children}
     </main>
   );
 }
