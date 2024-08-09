@@ -7,7 +7,11 @@ type Props = {}
 
 const Home = (props: Props) => {
 
-  const loggedIn = {firstName : "Yacine", lastName : "kelalech"}
+  const loggedIn = {
+    firstName : "Yacine", 
+    lastName : "kelalech",
+    email : "yacineyassine@gmail.com"
+  }
   return (
     <section className='home'>
       <div className='home-content'>
@@ -29,7 +33,7 @@ const Home = (props: Props) => {
       <RightSidebar
         user={loggedIn}
         transactions={[]}
-        banks={[]}
+        banks={[{}, {}]}
       />
     </section>
   )
