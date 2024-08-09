@@ -3,6 +3,7 @@
 import React from 'react'
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetDescription,
     SheetHeader,
@@ -43,34 +44,39 @@ const MobileNav = ({user}: MobileNavProps) => {
                 </Link> 
 
                 <div className='mobilenav-sheet'>
-                </div>
-
-                {sidebarLinks.map(link => {
-                    const isActive = pathName === link.route || pathName.startsWith(`${link.route}/`) 
-                    return (
-                        <Link 
-                            href={link.route} 
-                            key={link.label}
-                            className={cn("sidebar-link", {
-                                "bg-bank-gradient" : isActive
+                    <SheetClose asChild>
+                        <nav className='flex h-full flex-col gap-6 pt-16 text-white'>
+                            {sidebarLinks.map(link => {
+                                const isActive = pathName === link.route || pathName.startsWith(`${link.route}/`) 
+                                return (
+                                    <SheetClose asChild key={link.route}>
+                                        <Link 
+                                            href={link.route} 
+                                            key={link.label}
+                                            className={cn("sidebar-link", {
+                                                "bg-bank-gradient" : isActive
+                                            })}
+                                        >
+                                            <div className='relative size-6'>
+                                                <Image
+                                                    src={link.imgURL}
+                                                    alt={link.label}
+                                                    fill
+                                                    className={cn({
+                                                        "brightness-[3] invert-0" : isActive
+                                                    })}  
+                                                />
+                                            </div>
+                                            <p className={cn('sidebar-label', {
+                                                "!text-white" : isActive
+                                            })}>{link.label}</p>
+                                        </Link>
+                                    </SheetClose>
+                                )
                             })}
-                        >
-                            <div className='relative size-6'>
-                                <Image
-                                    src={link.imgURL}
-                                    alt={link.label}
-                                    fill
-                                    className={cn({
-                                        "brightness-[3] invert-0" : isActive
-                                    })}  
-                                />
-                            </div>
-                            <p className={cn('sidebar-label', {
-                                "!text-white" : isActive
-                            })}>{link.label}</p>
-                        </Link>
-                    )
-                })}
+                        </nav>
+                    </SheetClose>
+                </div>
             </SheetContent>
         </Sheet>
     </section>
