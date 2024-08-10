@@ -25,22 +25,22 @@ const AuthForm = ({type}: Props) => {
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
 
-    const 
+    const formSchema = authFormSchema(type)
 
-    const form = useForm<z.infer<typeof authFormSchema>>({
-        resolver: zodResolver(authFormSchema),
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
         defaultValues: {
             email : "",
             password : "",
             firstName : "",
             lastName : "",
-            address : "",
+            address1 : "",
             dateOfBirth : "",
             ssn : ""
         },
     })
      
-    function onSubmit(values: z.infer<typeof authFormSchema>) {
+    function onSubmit(values: z.infer<typeof formSchema>) {
         
         setIsLoading(true)
         console.log("submitted values:", values)
@@ -104,7 +104,7 @@ const AuthForm = ({type}: Props) => {
                                 <CustomInput
                                     control={form.control}
                                     label='Address'
-                                    name='address'
+                                    name='address1'
                                     placeholder='Enter your specific address'
                                 />  
                                 <CustomInput
