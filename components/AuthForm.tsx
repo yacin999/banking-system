@@ -40,17 +40,32 @@ const AuthForm = ({type}: Props) => {
         },
     })
      
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    const onSubmit =  async (data: z.infer<typeof formSchema>) => {
         
         setIsLoading(true)
-        console.log("submitted values:", values)
-        new Promise((resolve)=>{
-            console.log("is loading :", isLoading)
-            setTimeout(() => {
-                router.push("/")
-            }, 5000);
-        })
+       try {
+        // Sign up with Appwrite & create a plaid token
+
+        if (type===  "sign-up") {
+            // const newUser = await SignUp(data)
+            // setUser(newUser)
+        }
+        
+        if (type === "sign-in") {
+            // const response = await signIn({
+            //     email : data.email
+            //     password : data.password
+            // })
+
+            // if (response)  router.push("/")
+            
+        } 
+       
+        }catch (error) {
+        console.log("error", error)
+       } finally {
         setIsLoading(false)
+       }
     }
 
    
@@ -108,6 +123,12 @@ const AuthForm = ({type}: Props) => {
                                     label='Address'
                                     name='address1'
                                     placeholder='Enter your specific address'
+                                />  
+                                <CustomInput
+                                    control={form.control}
+                                    label='City'
+                                    name='city'
+                                    placeholder='Enter your city'
                                 />  
                                 <div className='flex gap-4'>
                                     <CustomInput
