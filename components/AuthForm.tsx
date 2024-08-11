@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/form"
 import CustomInput from './CustomInput'
 import { authFormSchema } from '@/lib/utils'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
+import { getLoggedInUser } from '@/lib/appwrite'
  
 
 type Props = {
@@ -24,6 +25,21 @@ const AuthForm = ({type}: Props) => {
     const [user, setUser] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
+
+
+    // upwrite setup
+
+    const [loggedInUser, setLoggedInUser] = useState<any>(null);
+
+    // const login = async (email, password) => {
+    //   const session = await account.createEmailPasswordSession(email, password);
+    //   setLoggedInUser(await account.get());
+    // };
+  
+
+    // end upwrite setup
+
+
 
     const formSchema = authFormSchema(type)
 
@@ -45,21 +61,19 @@ const AuthForm = ({type}: Props) => {
         setIsLoading(true)
        try {
         // Sign up with Appwrite & create a plaid token
-
-        if (type===  "sign-up") {
-            // const newUser = await SignUp(data)
-            // setUser(newUser)
-        }
-        
-        if (type === "sign-in") {
-            // const response = await signIn({
-            //     email : data.email
-            //     password : data.password
-            // })
-
-            // if (response)  router.push("/")
+            if (type===  "sign-up") {
+                const user = await getLoggedInUser();
+                if (user) redirect("/account");
+            }
             
-        } 
+            if (type === "sign-in") {
+                const loggedIn = await getLoggedInUser()
+
+                if (!loggedIn) {
+                  redirect("/sign-up")
+                }
+                
+            } 
        
         }catch (error) {
         console.log("error", error)
@@ -69,6 +83,9 @@ const AuthForm = ({type}: Props) => {
     }
 
    
+    if (loggedInUser) {
+        router.push("/")
+    }
 
   return (
     <section className='auth-form'>

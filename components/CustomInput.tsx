@@ -27,9 +27,11 @@ const CustomInput = ({control, name, label, placeholder}: Props) => {
                 <div className='flex w-full flex-col'>
                     <FormControl>
                         <Input
+                            id={name}
                             placeholder={placeholder}
                             className='input-class'
                             type={ name === "password" ? "password" :  "text"}
+                            aria-describedby={`${name}-form-item-description`}
                             {...field}
                         />
                     </FormControl>
