@@ -6,12 +6,10 @@ import React from 'react'
 import { sidebarLinks } from "../constants/index"
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
-import { signOut } from '@/lib/actions/user.actions'
-import { Button } from './ui/button'
 import Footer from './Footer'
 
 
-const Sidebar = (user: SiderbarProps) => {
+const Sidebar = ({user}: SiderbarProps) => {
     const pathName = usePathname()
   return (
     <section className='sidebar'>

@@ -11,7 +11,6 @@ const Home = async (props: Props) => {
 
   const loggedIn = await getLoggedInUser()
 
-  console.log("Dashboard : ", loggedIn)
 
   if (!loggedIn) {
     redirect("/sign-in")
