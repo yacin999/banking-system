@@ -6,6 +6,8 @@ import React from 'react'
 import { sidebarLinks } from "../constants/index"
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
+import { signOut } from '@/lib/actions/user.actions'
+import { Button } from './ui/button'
 
 
 const Sidebar = (user: SiderbarProps) => {
@@ -53,7 +55,9 @@ const Sidebar = (user: SiderbarProps) => {
 
             USER
         </nav>
-        FOOTER
+        <form action={signOut}>
+            <Button className='bg-red-700 text-white px-5 py-3' type="submit">Sign out</Button>
+        </form>
     </section>
   )
 }

@@ -4,6 +4,7 @@ import { cookies } from "next/headers"
 import { createAdminClient, createSessionClient } from "../appwrite"
 import { ID } from "node-appwrite"
 import { parseStringify } from "../utils"
+import { redirect } from "next/navigation"
 
 
 
@@ -48,14 +49,27 @@ export const signUp = async (userData : SignUpParams) => {
 }
 
 
-
 export async function getLoggedInUser() {
     try {
       const { account } = await createSessionClient();
       const user =  await account.get();
-        console.log("test from getLoggedInUser :", user)
       return parseStringify(user)
     } catch (error) {
       return null;
     }
+}
+
+
+export const signOut = async () =>  {
+  
+    try {
+        const { account } = await createSessionClient();
+  
+        cookies().delete("appwrite-session");
+        await account.deleteSession("current");
+
+    } catch (error) {
+        return null
+    }
+  
 }
