@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/form"
 import CustomInput from './CustomInput'
 import { authFormSchema } from '@/lib/utils'
-import { redirect, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 import { signUp } from '@/lib/actions/user.actions'
 
@@ -27,18 +27,6 @@ const AuthForm = ({type}: Props) => {
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
 
-
-    // upwrite setup
-
-    const [loggedInUser, setLoggedInUser] = useState<any>(null);
-
-    // const login = async (email, password) => {
-    //   const session = await account.createEmailPasswordSession(email, password);
-    //   setLoggedInUser(await account.get());
-    // };
-  
-
-    // end upwrite setup
 
 
 
@@ -83,10 +71,6 @@ const AuthForm = ({type}: Props) => {
        }
     }
 
-   
-    if (loggedInUser) {
-        router.push("/")
-    }
 
   return (
     <section className='auth-form'>

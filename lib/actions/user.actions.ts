@@ -30,7 +30,7 @@ export const signUp = async (userData : SignUpParams) => {
 
         const session = await account.createEmailPasswordSession(email, password);
       
-        cookies().set("upwrite-session", session.secret, {
+        cookies().set("appwrite-session", session.secret, {
           path: "/",
           httpOnly: true,
           sameSite: "strict",
@@ -48,7 +48,9 @@ export const signUp = async (userData : SignUpParams) => {
 export async function getLoggedInUser() {
     try {
       const { account } = await createSessionClient();
-      return await account.get();
+      const user =  await account.get();
+        console.log("test from getLoggedInUser :", user)
+      return parseStringify(user)
     } catch (error) {
       return null;
     }
