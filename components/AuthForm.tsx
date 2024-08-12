@@ -12,9 +12,9 @@ import {
 } from "@/components/ui/form"
 import CustomInput from './CustomInput'
 import { authFormSchema } from '@/lib/utils'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
-import { signUp } from '@/lib/actions/user.actions'
+import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions'
 
  
 
@@ -56,12 +56,12 @@ const AuthForm = ({type}: Props) => {
             }
             
             if (type === "sign-in") {
-                // const loggedIn = await getLoggedInUser()
+               const response = await signIn({
+                email : data.email,
+                password : data.password
+               })
 
-                // if (!loggedIn) {
-                //   redirect("/sign-up")
-                // }
-                
+               if (response) router.push("/")
             } 
        
         }catch (error) {
