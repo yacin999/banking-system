@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import { signOut } from '@/lib/actions/user.actions'
 import { Button } from './ui/button'
+import Footer from './Footer'
 
 
 const Sidebar = (user: SiderbarProps) => {
@@ -55,9 +56,8 @@ const Sidebar = (user: SiderbarProps) => {
 
             USER
         </nav>
-        <form action={signOut}>
-            <Button className='bg-red-700 text-white px-5 py-3' type="submit">Sign out</Button>
-        </form>
+        
+        <Footer user={user}/>
     </section>
   )
 }
