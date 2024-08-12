@@ -14,7 +14,8 @@ import CustomInput from './CustomInput'
 import { authFormSchema } from '@/lib/utils'
 import { redirect, useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
-import { getLoggedInUser } from '@/lib/appwrite'
+import { signUp } from '@/lib/actions/user.actions'
+
  
 
 type Props = {
@@ -22,7 +23,7 @@ type Props = {
 }
 
 const AuthForm = ({type}: Props) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState<any>(null)
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
 
@@ -62,16 +63,16 @@ const AuthForm = ({type}: Props) => {
        try {
         // Sign up with Appwrite & create a plaid token
             if (type===  "sign-up") {
-                const user = await getLoggedInUser();
-                if (user) redirect("/account");
+                const newUser = signUp(data)
+                setUser(newUser)
             }
             
             if (type === "sign-in") {
-                const loggedIn = await getLoggedInUser()
+                // const loggedIn = await getLoggedInUser()
 
-                if (!loggedIn) {
-                  redirect("/sign-up")
-                }
+                // if (!loggedIn) {
+                //   redirect("/sign-up")
+                // }
                 
             } 
        

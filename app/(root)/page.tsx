@@ -1,19 +1,17 @@
 import HeaderBox from '@/components/HeaderBox'
 import RightSidebar from '@/components/RightSidebar'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
-import { getLoggedInUser } from '@/lib/appwrite'
-import { redirect } from 'next/navigation'
 import React from 'react'
 
 type Props = {}
 
 const Home = async (props: Props) => {
 
-  const loggedIn = await getLoggedInUser()
+  // const loggedIn = await getLoggedInUser()
 
-  if (!loggedIn) {
-    redirect("/sign-in")
-  }
+  // if (!loggedIn) {
+  //   redirect("/sign-in")
+  // }
   
   return (
     <section className='home'>
