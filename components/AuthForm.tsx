@@ -15,6 +15,7 @@ import { authFormSchema } from '@/lib/utils'
 import { redirect, useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions'
+import PlaidLink from './PlaidLink'
 
  
 
@@ -98,7 +99,10 @@ const AuthForm = ({type}: Props) => {
 
         {user ? (
             <div className='flex flex-col gap-4'>
-                {/* PlaidLink */}
+                <PlaidLink
+                    user={user}
+                    variant="primary"
+                />
             </div>
         ) : (
             <>
