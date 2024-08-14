@@ -4,7 +4,9 @@ type Props = {}
 
 const paymentTransfer = (props: Props) => {
   return (
-    <div>paymentTransfer</div>
+    <div className='flex flex-col'>
+      <div>flex</div>
+    </div>
   )
 }
 
