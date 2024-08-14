@@ -4,7 +4,7 @@ type Props = {}
 
 const TransactionHistory = (props: Props) => {
   return (
-    <div>TransactionHistory</div>
+    <div className='text-xl'>TransactionHistory</div>
   )
 }
 
