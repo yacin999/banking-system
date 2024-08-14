@@ -4,7 +4,7 @@ type Props = {}
 
 const MyBanks = (props: Props) => {
   return (
-    <div>page</div>
+    <div className='text-3xl'>page</div>
   )
 }
 
