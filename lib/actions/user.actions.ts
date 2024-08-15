@@ -6,7 +6,7 @@ import { ID } from "node-appwrite"
 import { parseStringify } from "../utils"
 import { redirect } from "next/navigation"
 import { plaidClient } from "../plaid"
-import { CountryCode, Products } from "plaid"
+import { CountryCode, ProcessorTokenCreateRequest, ProcessorTokenCreateRequestProcessorEnum, Products } from "plaid"
 
 
 
@@ -102,4 +102,44 @@ export const createLinkToken = async (user: User) => {
     } catch (error) {
       console.log(error);
     }
-  }
+}
+
+
+export const exchangePublicToken = async({
+    publicToken,
+    user,
+  }: exchangePublicTokenProps) => {
+    try {
+      // Exchange public token for access token and item ID
+      const response = await plaidClient.itemPublicTokenExchange({
+        public_token: publicToken,
+      });
+  
+      const accessToken = response.data.access_token;
+      const itemId = response.data.item_id;
+      
+      // Get account information from Plaid using the access token
+      const accountsResponse = await plaidClient.accountsGet({
+        access_token: accessToken,
+      });
+  
+      const accountData = accountsResponse.data.accounts[0];
+  
+      // Create a processor token for Dwolla using the access token and account ID
+      const request: ProcessorTokenCreateRequest = {
+        access_token: accessToken,
+        account_id: accountData.account_id,
+        processor: "dwolla" as ProcessorTokenCreateRequestProcessorEnum,
+      };
+  
+      const processorTokenResponse = await plaidClient.processorTokenCreate(request);
+      const processorToken = processorTokenResponse.data.processor_token;
+  
+       // Create a funding source URL for the account using the Dwolla customer ID, processor token, and bank name
+      
+
+
+    } catch (error) {
+      console.error("An error occurred while creating exchanging token:", error);
+    }
+}
