@@ -51,8 +51,21 @@ const AuthForm = ({type}: Props) => {
         setIsLoading(true)
        try {
         // Sign up with Appwrite & create a plaid token
+            const userData = {
+                firstName : data.firstName!,
+                lastName : data.lastName!,
+                address1 : data.address1!,
+                city : data.city!,
+                state : data.state!,
+                postalCode : data.postalCode!,
+                dateOfBirth : data.dateOfBirth!,
+                snn : data.ssn!,
+                email : data.email,
+                password : data.password
+            }
+
             if (type===  "sign-up") {
-                const newUser = signUp(data)
+                const newUser = signUp(userData)
                 setUser(newUser)
             }
             
