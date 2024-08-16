@@ -8,9 +8,14 @@ import { redirect } from "next/navigation"
 import { plaidClient } from "../plaid"
 import { CountryCode, ProcessorTokenCreateRequest, ProcessorTokenCreateRequestProcessorEnum, Products } from "plaid"
 import { revalidatePath } from "next/cache"
+import { addFundingSource } from "./dwolla.actions"
 
 
-
+const {
+  APPWRITE_DATABASE_ID : DATABASE_ID,
+  APPWRITE_USER_COLLECTION_ID : USER_COLLECTION_ID,
+  APPWRITE_BANK_COLLECTION_ID : BANK_COLLECTION_ID,
+} = process.env
 
 export const signIn = async ({email, password} : signInProps) => {
     try {
@@ -106,6 +111,36 @@ export const createLinkToken = async (user: User) => {
 }
 
 
+export const createBankAccount = async({
+  userId,
+  bankId,
+  accountId ,
+  accessToken,
+  fundingSourceUrl,
+  shareableId 
+} : createBankAccountProps) => {
+  try {
+    const {database} = await createAdminClient()
+    const bankAccount = await database.createDocument(
+      DATABASE_ID!,
+      BANK_COLLECTION_ID!,
+      ID.unique(),
+      {
+        userId,
+        bankId,
+        accountId ,
+        accessToken,
+        fundingSourceUrl,
+        shareableId 
+      }
+    )
+
+    return parseStringify(bankAccount)
+  } catch (error) {
+    
+  }
+}
+
 export const exchangePublicToken = async({
     publicToken,
     user,
@@ -156,7 +191,7 @@ export const exchangePublicToken = async({
         accountId : accountData.account_id,
         accessToken,
         fundingSourceUrl,
-        sharableId : encryptId(accountData.account_id)
+        shareableId : encryptId(accountData.account_id)
        })
 
       // Revalidate the path to reflect the changes
