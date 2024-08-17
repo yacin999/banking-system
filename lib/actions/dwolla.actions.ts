@@ -23,6 +23,7 @@ const dwollaClient = new Client({
   secret: process.env.DWOLLA_SECRET as string,
 });
 
+
 // Create a Dwolla Funding Source using a Plaid Processor Token
 export const createFundingSource = async (
   options: CreateFundingSourceOptions
@@ -57,7 +58,9 @@ export const createDwollaCustomer = async (
   try {
     return await dwollaClient
       .post("customers", newCustomer)
-      .then((res) => res.headers.get("location"));
+      .then((res) => {
+        return res.headers.get("location")
+      });
   } catch (err) {
     console.error("Creating a Dwolla Customer Failed: ", err);
   }
