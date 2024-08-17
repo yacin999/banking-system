@@ -59,7 +59,7 @@ const AuthForm = ({type}: Props) => {
                 state : data.state!,
                 postalCode : data.postalCode!,
                 dateOfBirth : data.dateOfBirth!,
-                snn : data.ssn!,
+                ssn : data.ssn!,
                 email : data.email,
                 password : data.password
             }
