@@ -11,6 +11,8 @@ const Home = async (props: Props) => {
 
   const loggedIn = await getLoggedInUser()
 
+  
+
 
   if (!loggedIn) {
     redirect("/sign-in")
