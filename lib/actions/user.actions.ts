@@ -235,9 +235,10 @@ export const exchangePublicToken = async({
 }
 
 
-export const getBanks = async ({userId} : getBanksProps) => {
+
+export const getBanks = async ({ userId }: getBanksProps) => {
   try {
-    const { database } = await createAdminClient()
+    const { database } = await createAdminClient();
 
     const banks = await database.listDocuments(
       DATABASE_ID!,
@@ -245,10 +246,9 @@ export const getBanks = async ({userId} : getBanksProps) => {
       [Query.equal('userId', [userId])]
     )
 
-
-    return parseStringify(banks.documents)
+    return parseStringify(banks.documents);
   } catch (error) {
-    console.log("error from GETBANKS :", error)
+    console.log(error)
   }
 }
 

@@ -6,13 +6,22 @@ import { getLoggedInUser } from '@/lib/actions/user.actions'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
-type Props = {}
 
-const Home = async (props: Props) => {
 
-  const loggedIn = await getLoggedInUser()
+const Home = async ({ searchParams : { id, page }}: SearchParamProps) => {
 
-  const {accounts, totalBanks, totalCurrentBalance} = await getAccounts({ userId : loggedIn.$id})
+  const loggedIn = await getLoggedInUser();
+  console.log("test logged in HOME : ", loggedIn.$id)
+  const accounts = await getAccounts({ 
+    userId: loggedIn.$id 
+  })
+
+  if (!accounts) return;
+
+  const accountsData = accounts?.Data
+  const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId
+
+  // const account = await getAccount({ appwriteItemId })
 
 
   if (!loggedIn) {
@@ -30,9 +39,9 @@ const Home = async (props: Props) => {
             subtext='Access and manage your account and transactions efficiently.'
           />
           <TotalBalanceBox
-            accounts={accounts}
-            totalBanks={totalBanks}
-            totalCurrentBalance={totalCurrentBalance}
+            accounts={accountsData}
+            totalBanks={accounts?.totalBanks}
+            totalCurrentBalance={accounts?.totalCurrentBalance}
           />
         </header>
         RECENT TRANSACTIONS
