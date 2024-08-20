@@ -10,7 +10,7 @@ import React from 'react'
 
 
 const Home = async ({ searchParams : { id, page }}: SearchParamProps) => {
-
+  const currentPage = Number(page as string) || 1
   const loggedIn = await getLoggedInUser();
   const accounts = await getAccounts({ 
     userId: loggedIn.$id 
@@ -21,7 +21,7 @@ const Home = async ({ searchParams : { id, page }}: SearchParamProps) => {
   const accountsData = accounts?.data
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId
 
-  // const account = await getAccount({ appwriteItemId })
+  const account = await getAccount({ appwriteItemId })
 
 
   if (!loggedIn) {
@@ -45,7 +45,12 @@ const Home = async ({ searchParams : { id, page }}: SearchParamProps) => {
           />
         </header>
         
-        <RecentTransactions/>
+        <RecentTransactions
+          accounts={accountsData}
+          transactions={account?.transactions}
+          appwriteItemId={appwriteItemId}
+          page={currentPage}
+        />
       </div>
       <RightSidebar
         user={loggedIn}
