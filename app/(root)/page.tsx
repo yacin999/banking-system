@@ -11,7 +11,6 @@ import React from 'react'
 const Home = async ({ searchParams : { id, page }}: SearchParamProps) => {
 
   const loggedIn = await getLoggedInUser();
-  console.log("test logged in HOME : ", loggedIn.$id)
   const accounts = await getAccounts({ 
     userId: loggedIn.$id 
   })

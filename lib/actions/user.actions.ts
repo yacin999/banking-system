@@ -160,6 +160,13 @@ export const createBankAccount = async ({
   shareableId,
 }: createBankAccountProps) => {
   try {
+
+    console.log("============== test CREATE BANK ACCOUNT data", userId,
+      bankId,
+      accountId,
+      accessToken,
+      fundingSourceUrl,
+      shareableId,)
     const { database } = await createAdminClient();
 
     const bankAccount = await database.createDocument(
@@ -175,6 +182,7 @@ export const createBankAccount = async ({
         shareableId,
       }
     )
+    console.log("============= BANK ACCOUNT :", bankAccount)
 
     return parseStringify(bankAccount);
   } catch (error) {
@@ -223,7 +231,7 @@ export const exchangePublicToken = async ({
     if (!fundingSourceUrl) throw Error;
 
     // Create a bank account using the user ID, item ID, account ID, access token, funding source URL, and shareableId ID
-    await createBankAccount({
+    const bankAccount = await createBankAccount({
       userId: user.$id,
       bankId: itemId,
       accountId: accountData.account_id,
@@ -231,7 +239,6 @@ export const exchangePublicToken = async ({
       fundingSourceUrl,
       shareableId: encryptId(accountData.account_id),
     });
-
     // Revalidate the path to reflect the changes
     revalidatePath("/");
 
