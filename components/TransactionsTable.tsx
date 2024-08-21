@@ -9,14 +9,22 @@ import {
     TableRow,
   } from "@/components/ui/table"
 import { cn, formatAmount, formatDateTime, getTransactionStatus, removeSpecialCharacters } from '@/lib/utils'
+import { transactionCategoryStyles } from '@/constants'
   
 
 const CategoryBadge = ({category} : CategoryBadgeProps) => {
-    return (
-        <div className={cn('category-badge')}>
-            <div className={cn("size-2 rounded-full")}/>
+    const {
+            borderColor, 
+            backgroundColor,
+            textColor, 
+            chipBackgroundColor
+        } = transactionCategoryStyles[category as keyof typeof transactionCategoryStyles] || transactionCategoryStyles.default
 
-            <p className={cn("text-[12px] font-medium")}>
+    return (
+        <div className={cn('category-badge', borderColor, chipBackgroundColor)}>
+            <div className={cn("size-2 rounded-full", backgroundColor)}/>
+
+            <p className={cn("text-[12px] font-medium", textColor)}>
                 {category}
             </p>
         </div>
