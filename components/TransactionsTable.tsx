@@ -8,10 +8,20 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-import { formatAmount, formatDateTime, getTransactionStatus, removeSpecialCharacters } from '@/lib/utils'
+import { cn, formatAmount, formatDateTime, getTransactionStatus, removeSpecialCharacters } from '@/lib/utils'
   
 
-type Props = {}
+const CategoryBadge = ({category} : CategoryBadgeProps) => {
+    return (
+        <div className={cn('category-badge')}>
+            <div className={cn("size-2 rounded-full")}/>
+
+            <p className={cn("text-[12px] font-medium")}>
+                {category}
+            </p>
+        </div>
+    )
+}
 
 const TransactionsTable = ({ transactions }: TransactionTableProps ) => {
   return (
@@ -46,19 +56,19 @@ const TransactionsTable = ({ transactions }: TransactionTableProps ) => {
                             {isDebit ? `-${amount}` : isCredit ? amount : amount }
                         </TableCell>
 
-                        <TableCell className=''>
+                        <TableCell className='pl-2 pr-10'>
                             {status}
                         </TableCell>
 
-                        <TableCell>
+                        <TableCell className='min-w-32 pl-2 pr-10'>
                             {formatDateTime(new Date(t.date)).dateTime}
                         </TableCell>
                         
-                        <TableCell>
+                        <TableCell className='pl-2 pr-10 capitalize min-w-24 '>
                             {t.paymentChannel}
                         </TableCell>
 
-                        <TableCell>
+                        <TableCell className='pl-2 pr-10 max-md:hidden'>
                             {t.category}
                         </TableCell>
                     </TableRow>
