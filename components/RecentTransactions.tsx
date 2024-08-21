@@ -27,7 +27,7 @@ const RecentTransactions = ({
               <BankTabItem
                 key={account.id}
                 account={account}
-                appwriteItemId={account.appwriteItemId}
+                appwriteItemId={appwriteItemId}
               />
             </TabsTrigger>
           ))}
@@ -41,7 +41,7 @@ const RecentTransactions = ({
           >
             <BankInfo
               account={account}
-              appwriteItemId={account.appwriteItemId}
+              appwriteItemId={appwriteItemId}
               type="full"
             />
 
