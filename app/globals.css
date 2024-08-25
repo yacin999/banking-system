@@ -375,4 +375,13 @@
   .sidebar-label {
     @apply text-16 font-semibold text-black-2 max-xl:hidden;
   }
+
+  /* Skeleton */
+  .bg-skeleton {
+    @apply bg-gray-200
+  }
 }
+
+
+
+
