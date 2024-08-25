@@ -245,6 +245,12 @@ export const TotalBalanceBoxSkeleton = () => {
     )
 }
 
+export const TransactionsTableSkeleton = () => {
+    return (
+        <div></div>
+    )
+}
+
 export const RecentTransactionsSkeleton = ()=> {
     return (
         <section className="recent-transactions">
@@ -252,6 +258,16 @@ export const RecentTransactionsSkeleton = ()=> {
                 <div className="h-6 w-[240px] rounded-md bg-skeleton mb-3"/>
                 <div className="w-[87px] h-[42px] rounded-lg bg-skeleton"/>
             </header>
+
+            <div>
+                {/* tabs */}
+            </div>
+
+            <div>
+                {/* bank info */}
+            </div>
+
+            <TransactionsTableSkeleton/>
         </section>
     )
 }
