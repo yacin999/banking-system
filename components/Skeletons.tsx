@@ -1,4 +1,12 @@
 import { useEffect } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 // Loading animation
 const shimmer =
@@ -84,42 +92,42 @@ export function LatestInvoicesSkeleton() {
   );
 }
 
-export function TableRowSkeleton() {
-  return (
-    <tr className="w-full border-b border-gray-100 last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
-      {/* Customer Name and Image */}
-      <td className="relative overflow-hidden whitespace-nowrap py-3 pl-6 pr-3">
-        <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-full bg-gray-100"></div>
-          <div className="h-6 w-24 rounded bg-gray-100"></div>
-        </div>
-      </td>
-      {/* Email */}
-      <td className="whitespace-nowrap px-3 py-3">
-        <div className="h-6 w-32 rounded bg-gray-100"></div>
-      </td>
-      {/* Amount */}
-      <td className="whitespace-nowrap px-3 py-3">
-        <div className="h-6 w-16 rounded bg-gray-100"></div>
-      </td>
-      {/* Date */}
-      <td className="whitespace-nowrap px-3 py-3">
-        <div className="h-6 w-16 rounded bg-gray-100"></div>
-      </td>
-      {/* Status */}
-      <td className="whitespace-nowrap px-3 py-3">
-        <div className="h-6 w-16 rounded bg-gray-100"></div>
-      </td>
-      {/* Actions */}
-      <td className="whitespace-nowrap py-3 pl-6 pr-3">
-        <div className="flex justify-end gap-3">
-          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
-          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
-        </div>
-      </td>
-    </tr>
-  );
-}
+// export function TableRowSkeleton() {
+//   return (
+//     <tr className="w-full border-b border-gray-100 last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
+//       {/* Customer Name and Image */}
+//       <td className="relative overflow-hidden whitespace-nowrap py-3 pl-6 pr-3">
+//         <div className="flex items-center gap-3">
+//           <div className="h-8 w-8 rounded-full bg-gray-100"></div>
+//           <div className="h-6 w-24 rounded bg-gray-100"></div>
+//         </div>
+//       </td>
+//       {/* Email */}
+//       <td className="whitespace-nowrap px-3 py-3">
+//         <div className="h-6 w-32 rounded bg-gray-100"></div>
+//       </td>
+//       {/* Amount */}
+//       <td className="whitespace-nowrap px-3 py-3">
+//         <div className="h-6 w-16 rounded bg-gray-100"></div>
+//       </td>
+//       {/* Date */}
+//       <td className="whitespace-nowrap px-3 py-3">
+//         <div className="h-6 w-16 rounded bg-gray-100"></div>
+//       </td>
+//       {/* Status */}
+//       <td className="whitespace-nowrap px-3 py-3">
+//         <div className="h-6 w-16 rounded bg-gray-100"></div>
+//       </td>
+//       {/* Actions */}
+//       <td className="whitespace-nowrap py-3 pl-6 pr-3">
+//         <div className="flex justify-end gap-3">
+//           <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+//           <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+//         </div>
+//       </td>
+//     </tr>
+//   );
+// }
 
 export function InvoicesMobileSkeleton() {
   return (
@@ -245,9 +253,141 @@ export const TotalBalanceBoxSkeleton = () => {
     )
 }
 
+
+function TableRowSkeleton() {
+  return (
+    <tr className="w-full border-b border-gray-100 last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
+      {/* Customer Name and Image */}
+      <td className="relative overflow-hidden whitespace-nowrap py-3 pl-6 pr-3">
+        <div className="flex items-center gap-3">
+          <div className="h-8 w-8 rounded-full bg-gray-100"></div>
+          <div className="h-6 w-24 rounded bg-gray-100"></div>
+        </div>
+      </td>
+      {/* Email */}
+      <td className="whitespace-nowrap px-3 py-3">
+        <div className="h-6 w-32 rounded bg-gray-100"></div>
+      </td>
+      {/* Amount */}
+      <td className="whitespace-nowrap px-3 py-3">
+        <div className="h-6 w-16 rounded bg-gray-100"></div>
+      </td>
+      {/* Date */}
+      <td className="whitespace-nowrap px-3 py-3">
+        <div className="h-6 w-16 rounded bg-gray-100"></div>
+      </td>
+      {/* Status */}
+      <td className="whitespace-nowrap px-3 py-3">
+        <div className="h-6 w-16 rounded bg-gray-100"></div>
+      </td>
+      {/* Actions */}
+      <td className="whitespace-nowrap py-3 pl-6 pr-3">
+        <div className="flex justify-end gap-3">
+          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+        </div>
+      </td>
+    </tr>
+  );
+}
+
 export const TransactionsTableSkeleton = () => {
     return (
-        <div></div>
+      // <Table>
+      // <TableHeader className='bg-[#F9F8FB]'>
+      //     <TableRow>
+      //         <TableHead className="px-2">Transaction</TableHead>
+      //         <TableHead className="px-2">Amount</TableHead>
+      //         <TableHead className="px-2">Status</TableHead>
+      //         <TableHead className="px-2">Date</TableHead>
+      //         <TableHead className="px-2 max-md:hidden">Channel</TableHead>
+      //         <TableHead className="px-2 max-2xl:hidden">Category</TableHead>
+      //     </TableRow>
+      // </TableHeader>
+      // <TableBody>
+      //     {["transactions"].map((t) => {
+
+      //         return (
+      //             <TableRow key={t.id} className={`!hover:bg-none !border-b-default`}>
+      //                 <TableCell className='max-w-[250px] pl-2 pr-10'>
+      //                     <div className='flex items-center gap-3'>
+      //                         <h1 className='text-14 truncate font-semibold text-[#344054]'>{removeSpecialCharacters(t.name)}</h1>
+      //                     </div>
+      //                 </TableCell>
+
+      //                 <TableCell className={`pl-2 pr-10 font-semibold ${isDebit || amount[0] === '-' ? "text-[#F04438]" : "text-[#039855]"}`}>
+      //                     {isDebit ? `-${amount}` : isCredit ? amount : amount }
+      //                 </TableCell>
+
+      //                 <TableCell className='pl-2 pr-10'>
+      //                     <CategoryBadge category={status}/>
+      //                 </TableCell>
+
+      //                 <TableCell className='min-w-32 pl-2 pr-10'>
+      //                     {formatDateTime(new Date(t.date)).dateTime}
+      //                 </TableCell>
+                      
+      //                 <TableCell className='pl-2 pr-10 capitalize min-w-24'>
+      //                     {t.paymentChannel}
+      //                 </TableCell>
+
+      //                 <TableCell className='max-2xl:hidden pl-2 pr-10'>
+      //                     <CategoryBadge category={t.category}/>
+      //                 </TableCell>
+      //             </TableRow>
+      //         )
+      //     })}
+      // </TableBody>
+      // </Table>
+
+
+
+      <div className="mt-6 flow-root">
+      <div className="inline-block min-w-full align-middle">
+        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+          <div className="md:hidden">
+            <InvoicesMobileSkeleton />
+            <InvoicesMobileSkeleton />
+            <InvoicesMobileSkeleton />
+            <InvoicesMobileSkeleton />
+            <InvoicesMobileSkeleton />
+            <InvoicesMobileSkeleton />
+          </div>
+          <table className="hidden min-w-full text-gray-900 md:table">
+            <thead className="rounded-lg text-left text-sm font-normal">
+              <tr>
+                <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                  Transaction
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Amount
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Status
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Date
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Channel
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Category
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white">
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     )
 }
 
@@ -259,12 +399,35 @@ export const RecentTransactionsSkeleton = ()=> {
                 <div className="w-[87px] h-[42px] rounded-lg bg-skeleton"/>
             </header>
 
-            <div>
-                {/* tabs */}
+            <div className="flex justify-center items-center gap-4">
+                <div className="flex justify-center items-center h-[38px] border-b-[2px] border-bg-skeleton">
+                  <div className="h-5 w-[100px] rounded-md bg-skeleton"/>
+                </div>
+
+                <div className="flex justify-center items-center h-[38px] border-b-[2px] border-bg-skeleton">
+                  <div className="h-5 w-[100px] rounded-md bg-skeleton"/>
+                </div>
+
+                 <div className="flex justify-center items-center h-[38px] border-b-[2px] border-bg-skeleton">
+                  <div className="h-5 w-[100px] rounded-md bg-skeleton"/>
+                </div>
+                
+                 <div className="flex justify-center items-center h-[38px] border-b-[2px] border-bg-skeleton">
+                  <div className="h-5 w-[100px] rounded-md bg-skeleton"/>
+                </div>
             </div>
 
-            <div>
-                {/* bank info */}
+            <div className="gap-[18px] flex p-4 border bg-gray-100">
+                <div className="w-5 h-5 rounded-full bg-skeleton"/>
+
+                <div className="flex w-full flex-1 flex-col justify-center gap-1">
+                  <div className="flex flex-1 items-center justify-between gap-2 overflow-hidden">
+                    <div className="w-[100px] h-6 bg-skeleton"/>
+                    <div className="w-[77px] h-6 rounded-full bg-skeleton"/>
+                  </div>
+
+                  <div className="w-[80px] h-6 bg-skeleton"/>
+                </div>
             </div>
 
             <TransactionsTableSkeleton/>
