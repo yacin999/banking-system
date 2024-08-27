@@ -383,6 +383,39 @@ export const RecentTransactionsSkeleton = ()=> {
     )
 }
 
+
+export const BankCardSkeleton = () => {
+  return (
+    <div className="flex flex-col">
+      <div className="relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px] bg-gray-200 shadow-creditCard backdrop-blur-[6px]">
+        <div className="relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-300 bg-bank-gradient px-5 pb-4 pt-5">
+          <div className="flex flex-col gap-2">
+              <div className="w-[150px] h-6 bg-skeleton rounded-sm"/>
+              <div className="w-[120px] h-6 bg-skeleton rounded-sm"/>
+          </div>
+          <article className="flex flex-col gap-2">
+            <div className="flex justify-between">
+              <div className="w-[87px] h-4 bg-skeleton rounded-sm"/>
+              <h2 className="text-12 font-semibold text-gray-200">
+              ●● / ●●
+              </h2>
+            </div>
+            <p className="text-14 flex font-semibold tracking-[1.1px] text-white">
+              <span className='text-nowrap'>●●●● ●●●● ●●●●</span> 
+              <div className="w-[46px] h-6 bg-skeleton rounded-sm"/>
+            </p>
+          </article>
+        </div>
+
+        <div className="bank-card_icon">
+          <div className="w-5 h-6 bg-skeleton rounded-sm"/>
+          <div className="w-[45px] h-[32px] bg-skeleton rounded-sm"/>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default async function DashboardSkeleton() {
     
     return (
@@ -395,78 +428,57 @@ export default async function DashboardSkeleton() {
 
           <RecentTransactionsSkeleton/>
         </div>
-        <div className="right-sidebar">
-          {/* right sidebar */}
-          <aside className="right-sidebar">
-            <section className="flex flex-col pb-8">
-              <div className="profile-banner" />
-              <div className="profile">
-                <div className="profile-img">
-                  <span className="text-5xl font-bold text-blue-500">{user.firstName[0]}</span>
-                </div>
-
-                <div className="profile-details">
-                  <h1 className='profile-name'>
-                    {user.firstName} {user.lastName}
-                  </h1>
-                  <p className="profile-email">
-                    {user.email}
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="banks">
-              <div className="flex w-full justify-between">
-                <h2 className="header-2">My Banks</h2>
-                <Link href="/" className="flex gap-2">
-                  <Image 
-                    src="/icons/plus.svg"
-                    width={20}
-                    height={20}
-                    alt="plus"
-                  />
-                  <h2 className="text-14 font-semibold text-gray-600">
-                    Add Bank
-                  </h2>
-                </Link>
+        {/* right sidebar */}
+        <aside className="right-sidebar">
+          <section className="flex flex-col pb-8">
+            <div className="profile-banner" />
+            <div className="profile">
+              <div className="profile-img">
+                <span className="text-5xl font-bold text-blue-500"></span>
               </div>
 
-              {banks?.length > 0 && (
-                <div className="relative flex flex-1 flex-col items-center justify-center gap-5">
-                  <div className='relative z-10'>
-                    <BankCard 
-                      key={banks[0].$id}
-                      account={banks[0]}
-                      userName={`${user.firstName} ${user.lastName}`}
-                      showBalance={false}
-                    />
-                  </div>
-                  {banks[1] && (
-                    <div className="absolute right-0 top-8 z-0 w-[90%]">
-                      <BankCard 
-                        key={banks[1].$id}
-                        account={banks[1]}
-                        userName={`${user.firstName} ${user.lastName}`}
-                        showBalance={false}
-                      />
-                    </div>
-                  )}
-                </div>
-              )}
-
-              <div className="mt-10 flex flex-1 flex-col gap-6">
-                <h2 className="header-2">Top categories</h2>
-
-                <div className='space-y-5'> 
-                  {categories.map((category, index) => (
-                    <Category key={category.name} category={category} />
-                  ))}
-                </div>
+              <div className="profile-details gap-3">
+                <h1 className='profile-name'>
+                  <div className="w-[175px] h-6 bg-skeleton rounded-lg"/>
+                </h1>
+                <p className="profile-email">
+                  <div className="w-[230px] h-6 bg-skeleton rounded-lg"/>
+                </p>
               </div>
-            </section>
-          </aside>
-        </div>
+            </div>
+          </section>
+
+          <section className="banks">
+            <div className="flex w-full justify-between">
+              <h2 className="header-2">
+                <div className="w-[85px] h-6 bg-skeleton rounded-lg"/>
+              </h2>
+              <div>
+                <div className="w-[92px] h-6 bg-skeleton rounded-lg"/>
+              </div>
+            </div>
+
+           
+            <div className="relative flex flex-1 flex-col items-center justify-center gap-5">
+              <div className='relative z-10'>
+                <BankCardSkeleton/>
+              </div>
+              <div className="absolute right-0 top-8 z-0 w-[90%]">
+                <BankCardSkeleton/>
+              </div>
+            </div>
+
+            <div className="mt-10 flex flex-1 flex-col gap-6">
+              <div className="w-[100px] h-[22px] bg-skeleton rounded-lg"/>
+
+              <div className='space-y-5'> 
+                {/* {categories.map((category, index) => (
+                  <Category key={category.name} category={category} />
+                ))} */}
+              </div>
+            </div>
+          </section>
+        </aside>
       </main>
     );
 }
