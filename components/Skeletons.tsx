@@ -338,7 +338,7 @@ export const TransactionsTableSkeleton = () => {
     </div>
     )
 }
-// dsf
+
 export const RecentTransactionsSkeleton = ()=> {
     return (
         <section className="recent-transactions">
