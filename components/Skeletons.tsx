@@ -388,28 +388,28 @@ export const BankCardSkeleton = () => {
   return (
     <div className="flex flex-col">
       <div className="relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px] bg-gray-200 shadow-creditCard backdrop-blur-[6px]">
-        <div className="relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-300 bg-bank-gradient px-5 pb-4 pt-5">
+        <div className="relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-300 px-5 pb-4 pt-5">
           <div className="flex flex-col gap-2">
-              <div className="w-[150px] h-6 bg-skeleton rounded-sm"/>
-              <div className="w-[120px] h-6 bg-skeleton rounded-sm"/>
+              <div className="w-[150px] h-6 bg-skeleton rounded-lg"/>
+              <div className="w-[120px] h-6 bg-skeleton rounded-lg"/>
           </div>
           <article className="flex flex-col gap-2">
             <div className="flex justify-between">
-              <div className="w-[87px] h-4 bg-skeleton rounded-sm"/>
+              <div className="w-[87px] h-4 bg-skeleton rounded-lg"/>
               <h2 className="text-12 font-semibold text-gray-200">
               ●● / ●●
               </h2>
             </div>
             <p className="text-14 flex font-semibold tracking-[1.1px] text-white">
               <span className='text-nowrap'>●●●● ●●●● ●●●●</span> 
-              <div className="w-[46px] h-6 bg-skeleton rounded-sm"/>
+              <div className="w-[46px] h-6 bg-skeleton rounded-lg"/>
             </p>
           </article>
         </div>
 
-        <div className="bank-card_icon">
-          <div className="w-5 h-6 bg-skeleton rounded-sm"/>
-          <div className="w-[45px] h-[32px] bg-skeleton rounded-sm"/>
+        <div className="flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px] bg-gray-300 bg-cover bg-center bg-no-repeat py-5 pr-5">
+          <div className="w-5 h-6 bg-skeleton rounded-lg"/>
+          <div className="w-[45px] h-[32px] bg-skeleton rounded-lg"/>
         </div>
       </div>
     </div>
