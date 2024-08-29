@@ -227,7 +227,7 @@ export function InvoicesTableSkeleton() {
 export const HeaderBoxSkeleton = () => {
    return (
         <div
-        className={`header-box ${shimmer} relative overflow-hidden rounded-xl p-2 shadow-sm`}
+        className={`header-box ${shimmer} relative overflow-hidden rounded-xl p-2`}
         >
             <div className="h-6 w-[240px] rounded-md bg-gray-200 mb-3" />
             <div className="h-5 w-[470px] rounded-md bg-gray-200 text-sm font-medium" />

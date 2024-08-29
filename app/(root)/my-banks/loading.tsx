@@ -1,17 +1,16 @@
-import { BankCardSkeleton } from '@/components/Skeletons'
+import { BankCardSkeleton, HeaderBoxSkeleton } from '@/components/Skeletons'
 import React from 'react'
 
 type Props = {}
 
 const loading = (props: Props) => {
   return (
-    <section className='my-banks'>
-        <div className='flex flex-col gap-3'>
-            <div className='w-[200px] h-[35px] bg-skeleton rounded-xl'/>
-            <div className='w-[250px] h-6 bg-skeleton rounded-xl'/>
+    <section className='flex'>
+      <div className='my-banks'>
+        <div className='flex w-full flex-col items-start justify-between gap-8 md:flex-row'>
+          <HeaderBoxSkeleton/>
         </div>
-
-        <div className=''>
+        <div className='space-y-4'>
             <div className='w-[100px] h-[22px] bg-skeleton rounded-xl mb-4'/>
 
             <div className='flex flex-wrap gap-6'>
@@ -23,6 +22,7 @@ const loading = (props: Props) => {
                 <BankCardSkeleton/>
             </div>
         </div>
+      </div>
     </section>
   )
 }
