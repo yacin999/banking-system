@@ -384,6 +384,27 @@ export const RecentTransactionsSkeleton = ()=> {
 }
 
 
+const FormFieldSkeleton = () => {
+  return (
+    <div className="flex justify-between">
+      <div className="flex flex-col">
+        <div className="w-[140px] h-[14px] rounded-xl bg-skeleton"/>
+        <div className="w-[250px] h-[20px] rounded-xl bg-skeleton"/>
+        <div className="w-[100px] h-[20px] rounded-xl bg-skeleton"/>
+      </div>
+    </div>
+  )
+}
+
+export const PaymentTransferFormSkeleton = () => {
+  return (
+    <div className="flex flex-col">
+
+    </div>
+  )
+}
+
+
 export const BankCardSkeleton = () => {
   return (
     <div className="flex flex-col">
