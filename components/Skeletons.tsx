@@ -472,9 +472,39 @@ export default async function DashboardSkeleton() {
               <div className="w-[100px] h-[22px] bg-skeleton rounded-lg"/>
 
               <div className='space-y-5'> 
-                {/* {categories.map((category, index) => (
-                  <Category key={category.name} category={category} />
-                ))} */}
+                {/* category skeleton */}
+                <div className="gap-[18px] flex p-4 rounded-xl">
+                  <div className="w-5 h-5 rounded-full bg-skeleton"/>
+                  <div className="flex w-full flex-1 flex-col gap-2">
+                    <div className="text-14 flex justify-between">
+                      <div className="w-[35px] h-5 rounded-lg bg-skeleton"/>
+                      <div className="w-[15px] h-5 rounded-lg bg-skeleton"/>
+                    </div>
+                    <div className="w-[216px] h-2 rounded-full bg-skeleton"/>
+                  </div>
+                </div>
+
+                <div className="gap-[18px] flex p-4 rounded-xl">
+                  <div className="w-5 h-5 rounded-full bg-skeleton"/>
+                  <div className="flex w-full flex-1 flex-col gap-2">
+                    <div className="text-14 flex justify-between">
+                      <div className="w-[35px] h-5 rounded-lg bg-skeleton"/>
+                      <div className="w-[15px] h-5 rounded-lg bg-skeleton"/>
+                    </div>
+                    <div className="w-[216px] h-2 rounded-full bg-skeleton"/>
+                  </div>
+                </div>
+
+                <div className="gap-[18px] flex p-4 rounded-xl">
+                  <div className="w-5 h-5 rounded-full bg-skeleton"/>
+                  <div className="flex w-full flex-1 flex-col gap-2">
+                    <div className="text-14 flex justify-between">
+                      <div className="w-[35px] h-5 rounded-lg bg-skeleton"/>
+                      <div className="w-[15px] h-5 rounded-lg bg-skeleton"/>
+                    </div>
+                    <div className="w-[216px] h-2 rounded-full bg-skeleton"/>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
