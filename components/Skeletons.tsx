@@ -386,20 +386,40 @@ export const RecentTransactionsSkeleton = ()=> {
 
 const FormFieldSkeleton = () => {
   return (
-    <div className="flex justify-between">
-      <div className="flex flex-col">
-        <div className="w-[140px] h-[14px] rounded-xl bg-skeleton"/>
-        <div className="w-[250px] h-[20px] rounded-xl bg-skeleton"/>
-        <div className="w-[100px] h-[20px] rounded-xl bg-skeleton"/>
+      <div className="border-t border-gray-200">
+        <div className="payment-transfer_form-item pb-6 pt-5">
+          <div className="payment-transfer_form-content">
+            <div className="w-[140px] h-[14px] rounded-xl bg-skeleton"/>
+            <div className="w-[250px] h-[20px] rounded-xl bg-skeleton"/>
+            <div className="w-[100px] h-[20px] rounded-xl bg-skeleton"/>
+          </div>
+
+          <div className="flex w-full flex-col">
+            <div className="w-[60%] h-[14px] rounded-xl bg-skeleton"/>
+          </div>
+        </div>
       </div>
-    </div>
   )
 }
 
 export const PaymentTransferFormSkeleton = () => {
   return (
     <div className="flex flex-col">
+      
+      <FormFieldSkeleton/>
+      <FormFieldSkeleton/>
 
+      <div className="payment-transfer_form-details">
+        <div className="w-[200px] h-[22px] rounded-xl bg-skeleton"/>
+        <div className="w-[260px] h-[24px] rounded-xl bg-skeleton"/>
+      </div>
+
+      <FormFieldSkeleton/>
+      <FormFieldSkeleton/>
+
+      <div className="payment-transfer_btn-box">
+        <div className="w-full h-10 bg-skeleton rounded-lg"/>
+      </div>
     </div>
   )
 }
