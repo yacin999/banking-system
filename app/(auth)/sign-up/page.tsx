@@ -5,6 +5,7 @@ import React from 'react'
 
 const SignUp = async () => {
 
+  // signup
   return (
     <section className='flex-center size-full max-sm:px-6'>
       <AuthForm type={"sign-up"}/>
