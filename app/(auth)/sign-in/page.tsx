@@ -5,6 +5,8 @@ import React from 'react'
 const SignIn = () => {
 
   return (
+
+    // sign in
     <section className='flex-center size-full max-sm:px-6'>
       <AuthForm type={"sign-in"}/>
     </section>
