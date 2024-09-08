@@ -6,6 +6,8 @@ import React from 'react'
 
 type Props = {}
 
+
+// my banks page
 const MyBanks = async (props: Props) => {
   const loggedIn = await getLoggedInUser()
   const accounts = await getAccounts({userId : loggedIn.$id})
