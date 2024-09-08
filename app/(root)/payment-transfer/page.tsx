@@ -16,6 +16,8 @@ const Transfer = async () => {
 
   const accountsData = accounts.data
 
+
+  // payment transfer page
   return (
     <section className='payment-transfer'>
       <HeaderBox
