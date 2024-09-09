@@ -7,7 +7,6 @@ import { formatAmount } from '@/lib/utils';
 import { redirect } from 'next/navigation';
 import React from 'react'
 
-// transaction history
 const TransactionHistory = async ({searchParams : {id , page}}: SearchParamProps) => {
   const currentPage = Number(page as string) || 1
   const loggedIn = await getLoggedInUser();
