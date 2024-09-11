@@ -3,6 +3,7 @@ import React from 'react'
 
 type Props = {}
 
+// banks 
 const loading = (props: Props) => {
   return (
     <section className='flex'>
