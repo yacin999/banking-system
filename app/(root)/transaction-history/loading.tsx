@@ -2,7 +2,7 @@ import { HeaderBoxSkeleton, TransactionsTableSkeleton } from '@/components/Skele
 import React from 'react'
 
 
-// transaction
+
 const TransactionHistoryLoading = () => {
   return (
     <div className='flex max-h-screen w-full flex-col gap-8 overflow-y-scroll p-8 xl:py-12'>
