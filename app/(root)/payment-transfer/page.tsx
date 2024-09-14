@@ -4,7 +4,7 @@ import { getAccounts } from '@/lib/actions/bank.actions'
 import { getLoggedInUser } from '@/lib/actions/user.actions'
 import React from 'react'
 
-
+// tranfer page
 const Transfer = async () => {
   const loggedIn = await getLoggedInUser();
   const accounts = await getAccounts({ 
