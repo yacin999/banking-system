@@ -1,7 +1,7 @@
 import AuthForm from '@/components/AuthForm'
 import React from 'react'
 
-
+// sign in page
 const SignIn = () => {
 
   return (
