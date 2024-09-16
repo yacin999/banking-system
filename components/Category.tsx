@@ -4,7 +4,7 @@ import { topCategoryStyles } from "@/constants";
 import { cn } from "@/lib/utils";
 import { Progress } from "./ui/progress";
 
-
+// category
 const Category = ({ category }: CategoryProps) => {
   const {
     bg,
