@@ -4,6 +4,8 @@ import Link from 'next/link'
 import React from 'react'
 import Copy from './Copy'
 
+
+// bank card
 const BankCard = ({ account, userName, showBalance = true }: CreditCardProps) => {
 
   return (
